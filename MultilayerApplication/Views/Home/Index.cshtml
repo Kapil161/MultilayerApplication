@@ -1,0 +1,33 @@
+﻿@model IEnumerable<CommonAccesslayer.Models.Employees>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <h1 class="text-center">Employee Data</h1>
+<table class="table table-bordered">
+    <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>Gender</th>
+    <th>Action</th>
+    </tr>
+    
+        
+        
+ @foreach (var emp in Model)
+
+        {
+             <tr>
+                   <td> @emp.Name</td>
+                   <td>@emp.Email</td>
+                   <td>@emp.Mobile</td>
+                   <td>@emp.Gender</td>
+                   <td>
+                       <a asp-action="Edit" asp-route-id="@emp.ID">Edit</a>||
+                       <a asp-action="Delete" asp-route-id="@emp.ID">Delete</a>
+                   </td>
+             </tr>
+        }
+</table>
+
